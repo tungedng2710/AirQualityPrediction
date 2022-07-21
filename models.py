@@ -29,7 +29,7 @@ class EnsembleModel:
             X_train = None, 
             y_train = None, 
             save_checkpoint = True,
-            save_dir = "trained_model/"):
+            save_dir = "trained_models/"):
         if not os.path.exists(save_dir):
             os.mkdir(save_dir)
         print("Training model...")
