@@ -40,10 +40,7 @@ class EnsembleModel:
                 print("Trained model has been saved at "+save_dir+"EnsembleModel.pkl")
         return self.model
 
-    def eval(self, X_test, y_test):
-        pass
-
-class NeuralNetwork:
-    def __init__(self) -> None:
+class NeuralNetwork(nn.Module):
+    def __init__(self):
         super().__init__()
         pass

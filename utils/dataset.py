@@ -9,7 +9,7 @@ import sklearn
 from sklearn.model_selection import train_test_split
 
 
-class AI4VN_AirDataset:
+class AI4VN_AirDataset(Dataset):
     def __init__(self, 
                  root_dir: str = "data-train/",
                  drop_null: bool = False,
