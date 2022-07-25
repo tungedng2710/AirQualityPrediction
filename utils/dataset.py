@@ -65,15 +65,16 @@ class AI4VN_AirDataLoader:
         return X_train, X_test, y_train, y_test
 
     def get_data_loader_pytorch(self, 
-                                batch_size: int = 128,
+                                batch_size_train: int = 128,
+                                batch_size_test: int = 128,
                                 num_workers: int = 8):
         train_loader = DataLoader(dataset=self.train_set,
-                                  batch_size=batch_size,
+                                  batch_size=batch_size_train,
                                   shuffle=True,
                                   drop_last=True,
                                   num_workers=num_workers)
         test_loader = DataLoader(dataset=self.test_set,
-                                batch_size=batch_size,
+                                batch_size=batch_size_test,
                                 shuffle=False,
                                 num_workers=num_workers)
         return train_loader, test_loader
