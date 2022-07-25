@@ -1,13 +1,12 @@
-import pandas as pd
-import numpy as np
 import os
 
-from torch.utils.data import DataLoader, Dataset, random_split
+import pandas as pd
 from sklearn.model_selection import train_test_split
+from torch.utils.data import DataLoader, Dataset, random_split
 
 
 class AI4VN_AirDataset(Dataset):
-    def __init__(self, 
+    def __init__(self,
                  root_dir: str = "data-train/",
                  mode: str = "input",
                  drop_null: bool = False):
@@ -19,28 +18,28 @@ class AI4VN_AirDataset(Dataset):
         assert root_dir is not None
         self.root_dir = root_dir
         if self.root_dir[-1] != '/':
-            self.root_dir = self.root_dir+'/'
+            self.root_dir = self.root_dir + '/'
         self.mode = mode
 
         input_df = []
         output_df = []
         print("Loading raw csv files...")
-        for csv_file in os.listdir(self.root_dir+"input/"):
-            input_df.append(pd.read_csv(self.root_dir+"input/"+csv_file))
+        for csv_file in os.listdir(self.root_dir + "input/"):
+            input_df.append(pd.read_csv(self.root_dir + "input/" + csv_file))
         self.merged_input_df = pd.concat(input_df, ignore_index=True, sort=False).iloc[:, 1:]
         if drop_null:
             self.merged_input_df = self.merged_input_df.dropna()
         self.columns = list(self.merged_input_df.columns)
 
-        for csv_file in os.listdir(self.root_dir+"output/"):
-            output_df.append(pd.read_csv(self.root_dir+"output/"+csv_file))
+        for csv_file in os.listdir(self.root_dir + "output/"):
+            output_df.append(pd.read_csv(self.root_dir + "output/" + csv_file))
         self.merged_output_df = pd.concat(input_df, ignore_index=True, sort=False).iloc[:, 1:]
         if drop_null:
             self.merged_output_df = self.merged_output_df.dropna()
         self.columns = list(self.merged_output_df.columns)
 
         self.X_in, self.y_in, self.X_out, self.y_out = self.preload()
-        
+
     def preload(self):
         feat_cols = self.columns
         feat_cols.remove("PM2.5")
@@ -57,12 +56,12 @@ class AI4VN_AirDataset(Dataset):
         else:
             return self.X_out[index], self.y_out[index]
 
-
     def __len__(self):
         if self.mode == "input":
             return len(self.merged_input_df)
-        else: 
+        else:
             return len(self.merged_output_df)
+
 
 class AI4VN_AirDataLoader:
     def __init__(self,
@@ -84,29 +83,29 @@ class AI4VN_AirDataLoader:
         self.random_seed = random_seed
         self.dataset_type = dataset_type
         self.test_size = test_size
-    
-    def get_data_loader_sklearn(self, 
+
+    def get_data_loader_sklearn(self,
                                 test_size: float = 0.2):
         if self.dataset_type == "output":
             X = self.dataset.X_out
             y = self.dataset.y_out
             X_train, X_test, y_train, y_test = train_test_split(
-                                                    X, y, test_size=test_size, random_state=self.random_seed
-                                                )
+                X, y, test_size=test_size, random_state=self.random_seed
+            )
             return X_train, X_test, y_train, y_test
         else:
             X = self.dataset.X_in
             y = self.dataset.y_in
             X_train, X_test, y_train, y_test = train_test_split(
-                                                    X, y, test_size=test_size, random_state=self.random_seed
-                                                )
+                X, y, test_size=test_size, random_state=self.random_seed
+            )
             return X_train, X_test, y_train, y_test
 
-    def get_data_loader_pytorch(self, 
+    def get_data_loader_pytorch(self,
                                 batch_size: int = 128,
                                 num_workers: int = 8):
         dataset_size = len(self.dataset)
-        test_size = int(dataset_size*self.test_size)
+        test_size = int(dataset_size * self.test_size)
         train_size = dataset_size - test_size
         train_set, val_set = random_split(self.dataset, [train_size, test_size])
         train_loader = DataLoader(dataset=train_set,
@@ -119,4 +118,3 @@ class AI4VN_AirDataLoader:
                                 shuffle=False,
                                 num_workers=num_workers)
         return train_loader, val_loader
-        
