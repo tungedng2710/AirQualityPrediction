@@ -1,6 +1,7 @@
 import os
 from utils.preprocessing import add_location_info
 from torch.utils.data import Dataset, DataLoader
+import pandas as pd
 
 
 class AI4VN_AirDataset(Dataset):

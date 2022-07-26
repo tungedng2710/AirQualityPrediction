@@ -45,6 +45,10 @@ class EnsembleModel:
                 print("Trained model has been saved at " + save_dir + self.alias + "_model.pkl")
         return self.model
 
+    def eval(self,
+             X_test=None):
+        return self.model.predict(X_test)
+
 
 class NormalizedLinear(nn.Module):
     def __init__(self, in_features, out_features):

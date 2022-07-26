@@ -30,4 +30,15 @@ def eval_regression_model(y_true, y_pred, verbose=1):
         print('RMSE: ', round(rmse, 4))
         print('MAPE: ', round(mape, 4))
         print('MDAPE: ', round(mdape, 4))
+
+    with open("./metrics.txt", "w") as outfile:
+        outfile.write("explained_variance: " + str(round(explained_variance, 4)) + "\n")
+        outfile.write("mean_squared_log_error: " + str(round(mean_squared_log_error, 4)) + "\n")
+        outfile.write("R^2: " + str(round(r2, 4)) + "\n")
+        outfile.write("MAE: " + str(round(mae, 4)) + "\n")
+        outfile.write("MSE: " + str(round(mse, 4)) + "\n")
+        outfile.write("RMSE: " + str(round(rmse, 4)) + "\n")
+        outfile.write("MAPE: " + str(round(mape, 4)) + "\n")
+        outfile.write("MDAPE: " + str(round(mdape, 4)) + "\n")
+
     return r2, mae, mse, rmse, mape, mdape
