@@ -2,15 +2,15 @@ import pandas as pd
 import numpy as np
 import os
 
-from torch.utils.data import DataLoader, Dataset, random_split
-from sklearn.model_selection import train_test_split
-
+from utils.preprocessing import add_location_info
+from torch.utils.data import Dataset, DataLoader
 
 class AI4VN_AirDataset(Dataset):
     def __init__(self, 
                  root_dir: str = "data-train/",
                  mode: str = "train",
-                 drop_null: bool = False):
+                 drop_null: bool = True,
+                 use_location_info: bool = True):
         """
         root_dir: path to data-train directory
         drop_null: drop row missing data
@@ -25,11 +25,18 @@ class AI4VN_AirDataset(Dataset):
         self.df_list = []
         if mode == "train":
             raw_files_path = self.root_dir+"input/"
+            location_df = pd.read_csv("./data-train/location_input.csv")
         elif mode == "test":
             raw_files_path = self.root_dir+"output/"
+            location_df = pd.read_csv("./data-train/location_output.csv")
         
         for csv_file in os.listdir(raw_files_path):
-            self.df_list.append(pd.read_csv(raw_files_path+csv_file))
+            df = pd.read_csv(raw_files_path+csv_file)
+            if use_location_info:
+                station_name = csv_file.split(".csv")[0]
+                df = add_location_info(df, station_name, location_df)
+            self.df_list.append(df)
+
         self.merged_df = pd.concat(self.df_list, ignore_index=True, sort=False).iloc[:, 1:]
         if drop_null:
             self.merged_df = self.merged_df.dropna()
@@ -53,8 +60,8 @@ class AI4VN_AirDataset(Dataset):
 
 class AI4VN_AirDataLoader:
     def __init__(self):
-        self.train_set = AI4VN_AirDataset(drop_null=True, mode = "train")
-        self.test_set = AI4VN_AirDataset(drop_null=True, mode = "test")
+        self.train_set = AI4VN_AirDataset(mode = "train")
+        self.test_set = AI4VN_AirDataset(mode = "test")
     
     def get_data_loader_sklearn(self):
         X_train = self.train_set.X
@@ -78,4 +85,3 @@ class AI4VN_AirDataLoader:
                                 shuffle=False,
                                 num_workers=num_workers)
         return train_loader, test_loader
-        
