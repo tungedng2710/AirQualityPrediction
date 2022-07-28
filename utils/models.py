@@ -17,7 +17,7 @@ class EnsembleModel:
             "max_depth": 4,
             "min_samples_split": 5,
             "learning_rate": 0.01,
-            "loss": "ls",
+            "loss": "squared_error",
         }
         self.gradientboosting = ensemble.GradientBoostingRegressor(**gbparams)
         self.randomforest = ensemble.RandomForestRegressor(max_depth=2, random_state=0)
