@@ -3,18 +3,73 @@ from utils.preprocessing import add_location_info
 from torch.utils.data import Dataset, DataLoader
 import pandas as pd
 
+#
+# class AI4VN_AirDataset(Dataset):
+#     def __init__(self,
+#                  root_dir: str = "data-train/",
+#                  mode: str = "train",
+#                  drop_null: bool = False,
+#                  use_location_info: bool = True):
+#         """
+#         root_dir: path to data-train directory
+#         drop_null: drop row missing data
+#         mode: "train" or "test"
+#         """
+#         assert root_dir is not None
+#         self.root_dir = root_dir
+#         if self.root_dir[-1] != '/':
+#             self.root_dir = self.root_dir + '/'
+#         self.mode = mode
+#
+#         self.df_list = []
+#         if mode == "train":
+#             raw_files_path = self.root_dir + "input/"
+#             location_df = pd.read_csv(self.root_dir + "location_input.csv")
+#         elif mode == "test":
+#             raw_files_path = self.root_dir + "output/"
+#             location_df = pd.read_csv(self.root_dir + "location_output.csv")
+#
+#         for csv_file in os.listdir(raw_files_path):
+#             df = pd.read_csv(raw_files_path + csv_file)
+#             if use_location_info:
+#                 station_name = csv_file.split(".csv")[0]
+#                 df = add_location_info(df, station_name, location_df)
+#             self.df_list.append(df)
+#
+#         self.merged_df = pd.concat(self.df_list, ignore_index=True, sort=False).iloc[:, 1:]
+#         if drop_null:
+#             self.merged_df = self.merged_df.dropna()
+#         self.columns = list(self.merged_df.columns)
+#
+#         self.X, self.y = self.preload()
+#
+#     def preload(self):
+#         feat_cols = self.columns
+#         feat_cols.remove("PM2.5")
+#         feat_cols.remove("timestamp")
+#         X = self.merged_df[feat_cols].values
+#         y = self.merged_df["PM2.5"].values
+#         return X, y
+#
+#     def __getitem__(self, index):
+#         return self.X[index], self.y[index]
+#
+#     def __len__(self):
+#         return len(self.merged_df)
 
-class AI4VN_AirDataset(Dataset):
+
+class Process_Dataset(Dataset):
     def __init__(self,
                  root_dir: str = "data-train/",
                  mode: str = "train",
-                 drop_null: bool = True,
+                 drop_null: bool = False,
                  use_location_info: bool = True):
         """
         root_dir: path to data-train directory
         drop_null: drop row missing data
         mode: "train" or "test"
         """
+        global location_df, raw_files_path
         assert root_dir is not None
         self.root_dir = root_dir
         if self.root_dir[-1] != '/':
@@ -24,19 +79,23 @@ class AI4VN_AirDataset(Dataset):
         self.df_list = []
         if mode == "train":
             raw_files_path = self.root_dir + "input/"
-            location_df = pd.read_csv("./data-train/location_input.csv")
+            location_df = pd.read_csv(self.root_dir + "location_input.csv")
         elif mode == "test":
             raw_files_path = self.root_dir + "output/"
-            location_df = pd.read_csv("./data-train/location_output.csv")
+            location_df = pd.read_csv(self.root_dir + "location_output.csv")
 
         for csv_file in os.listdir(raw_files_path):
             df = pd.read_csv(raw_files_path + csv_file)
-            if use_location_info:
-                station_name = csv_file.split(".csv")[0]
-                df = add_location_info(df, station_name, location_df)
+            # if use_location_info:
+            #     station_name = csv_file.split(".csv")[0]
+            #     df = add_location_info(df, station_name, location_df)
             self.df_list.append(df)
 
         self.merged_df = pd.concat(self.df_list, ignore_index=True, sort=False).iloc[:, 1:]
+
+        for i, dataframe in enumerate(self.merged_df):
+            print(dataframe)
+
         if drop_null:
             self.merged_df = self.merged_df.dropna()
         self.columns = list(self.merged_df.columns)
@@ -57,11 +116,10 @@ class AI4VN_AirDataset(Dataset):
     def __len__(self):
         return len(self.merged_df)
 
-
 class AI4VN_AirDataLoader:
     def __init__(self):
-        self.train_set = AI4VN_AirDataset(mode="train")
-        self.test_set = AI4VN_AirDataset(mode="test")
+        self.train_set = Process_Dataset(mode="train")
+        self.test_set = Process_Dataset(mode="test")
 
     def get_data_loader_sklearn(self):
         X_train = self.train_set.X
