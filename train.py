@@ -15,7 +15,8 @@ if __name__ == "__main__":
     WINDOW_SIZE = 7*24
     HORIZON = 24
     distances = pd.read_csv("exp/in_out_location.csv").to_numpy()[:, 1:].astype(np.float32).T
-    distances_tensor = tf.expand_dims(tf.convert_to_tensor(distances), axis=0)
+    distances_normalize = distances/np.max(distances)
+    distances_tensor = tf.expand_dims(tf.convert_to_tensor(distances_normalize), axis=0)
     X_train, X_test, y_train, y_test = AI4VN_dataloader(test_split=0.2)
 
     # 1. Turn train and test arrays into tensor Datasets
@@ -57,7 +58,7 @@ if __name__ == "__main__":
     model.fit(train_dataset,
               epochs=N_EPOCHS,
               validation_data=test_dataset,
-              verbose=0,
+              verbose=1,
               callbacks=[tf.keras.callbacks.EarlyStopping(monitor="val_loss", patience=200, restore_best_weights=True),
                          tf.keras.callbacks.ReduceLROnPlateau(monitor="val_loss", patience=100, verbose=1)])
 

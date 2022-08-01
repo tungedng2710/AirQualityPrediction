@@ -5,23 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8785c50-bdad-4b0d-8f78-ed03270d2064" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000137-Ngoc Khanh.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000143-Thu vien - DHQG Ha Noi.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000153-Truong Tieu hoc Tran Quoc Toan.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000171-GENESIS School.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000210-Truong THCS Yen So.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000229-Quan Hoa.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000238-He thong lien cap Lomonoxop - Mam non.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000264-FDS - Ton That Thuyet.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000310-Hang Trong.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000370-Ba Trieu.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp/S0000541-Tran Quang Khai.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/fill_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/fill_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/sort_location.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/sort_location.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wandb/latest-run" beforeDir="false" afterPath="$PROJECT_DIR$/wandb/latest-run" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220801_190810-24g8bibl/files/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/wandb/run-20220801_190810-24g8bibl/files/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220801_190810-24g8bibl/files/wandb-summary.json" beforeDir="false" afterPath="$PROJECT_DIR$/wandb/run-20220801_190810-24g8bibl/files/wandb-summary.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220801_190810-24g8bibl/run-24g8bibl.wandb" beforeDir="false" afterPath="$PROJECT_DIR$/wandb/run-20220801_190810-24g8bibl/run-24g8bibl.wandb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,5 +174,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
