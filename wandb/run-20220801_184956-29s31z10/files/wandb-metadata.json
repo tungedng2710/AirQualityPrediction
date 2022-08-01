@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.4.0-122-generic-x86_64-with-glibc2.27",
+    "python": "3.8.13",
+    "heartbeatAt": "2022-08-01T11:49:58.656946",
+    "startedAt": "2022-08-01T11:49:56.964480",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 2060 SUPER",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/media/ubuntu/DATA/FACENETv1/FORECAST/AirQualityPrediction/train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/tungedng2710/AirQualityPrediction.git",
+        "commit": "0b168db1ab7a38c486f953b26d09657db6fb0967"
+    },
+    "email": "thanvanquang190493@gmail.com",
+    "root": "/media/ubuntu/DATA/FACENETv1/FORECAST/AirQualityPrediction",
+    "host": "vts-quangtv13-u",
+    "username": "ubuntu",
+    "executable": "/home/ubuntu/virtual environment/TonSpeech/bin/python"
+}

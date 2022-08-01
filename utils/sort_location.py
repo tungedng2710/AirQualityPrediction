@@ -5,9 +5,9 @@ import pandas as pd
 def use_location(root_dir: str = "./data-train/",
                  save_to_csv: bool = True,
                  mode: str = "training_data"):
-    global df_new, df_distances
+    global df_new, df_distances, data
     if mode == "training_data":
-        location_df = pd.read_csv(root_dir + "location_input.csv")
+        location_df = pd.read_csv(root_dir + "location_all.csv")
 
         station = location_df["station"].values
         longitude = location_df["longitude"].values
@@ -19,11 +19,19 @@ def use_location(root_dir: str = "./data-train/",
                 distance = np.linalg.norm(np.array([longitude[i] - longitude[j], latitude[i] - latitude[j]]))
                 distances.append(distance)
             order = np.argsort(distances)
-            data = {'1st': [station[order[1]]], '2nd': [station[order[2]]], '3rd': [station[order[3]]],
-                    '4th': [station[order[4]]], '5th': [station[order[5]]], '6th': [station[order[6]]],
-                    '7th': [station[order[7]]], '8th': [station[order[8]]], '9th': [station[order[9]]],
-                    '10th': [station[order[10]]]
-                    }
+            if len(station) == 11:
+                data = {'1st': [station[order[1]]], '2nd': [station[order[2]]], '3rd': [station[order[3]]],
+                        '4th': [station[order[4]]], '5th': [station[order[5]]], '6th': [station[order[6]]],
+                        '7th': [station[order[7]]], '8th': [station[order[8]]], '9th': [station[order[9]]],
+                        '10th': [station[order[10]]]
+                        }
+            elif len(station) == 15:
+                data = {'1st': [station[order[1]]], '2nd': [station[order[2]]], '3rd': [station[order[3]]],
+                        '4th': [station[order[4]]], '5th': [station[order[5]]], '6th': [station[order[6]]],
+                        '7th': [station[order[7]]], '8th': [station[order[8]]], '9th': [station[order[9]]],
+                        '10th': [station[order[10]]], '11th': [station[order[11]]], '12th': [station[order[12]]],
+                        '13th': [station[order[13]]], '14th': [station[order[14]]]
+                        }
             if i == 0:
                 df_new = pd.DataFrame(data=data)
             else:
@@ -33,7 +41,7 @@ def use_location(root_dir: str = "./data-train/",
         df_new.insert(0, "station", station, True)
 
         if save_to_csv:
-            df_new.to_csv(root_dir + 'nearest_location' + ".csv", index=False)
+            df_new.to_csv(root_dir + 'nearest_location_all' + ".csv", index=False)
 
     elif mode == "label_data":
         location_input = pd.read_csv(root_dir + "location_input.csv")
@@ -67,4 +75,4 @@ def use_location(root_dir: str = "./data-train/",
             df_distances.to_csv(root_dir + 'in_out_location' + ".csv", index=False)
 
 
-use_location(mode='label_data')
+use_location()

@@ -1,31 +1,19 @@
 import os
 import pandas as pd
 import numpy as np
+import shutil
 
 
-
-
-def fill(root_dir: str = "data-train/",
-         mode: str = "train",
-         drop_null: bool = False,
-         use_location_info: bool = True):
+def fill(raw_files_path: str,
+         location: np.array,
+         mode: str):
     """
-    root_dir: path to data-train directory
-    drop_null: drop row missing data
-    mode: "train" or "test"
+        raw_files_path: path to data-train csv file directory
+        location: array contains location
+        mode: "train" or "test"
     """
-    global raw_files_path
-    assert root_dir is not None
-    if root_dir[-1] != '/':
-        root_dir = root_dir + '/'
-
-    if mode == "train":
-        raw_files_path = root_dir + "input/"
-    elif mode == "test":
-        raw_files_path = root_dir + "output/"
-
-    location = pd.read_csv(root_dir + "nearest_location.csv").values
-    for csv_file in os.listdir(raw_files_path):
+    list_csv = sorted(os.listdir(raw_files_path))
+    for csv_file in list_csv:
         df = pd.read_csv(raw_files_path + csv_file)
         temperature = df['temperature'].values
         humidity = df['humidity'].values
@@ -63,8 +51,51 @@ def fill(root_dir: str = "data-train/",
         df.replace(humidity, humidity_new)
         df.replace(PM2_5, PM2_5_new)
 
-        if not os.path.exists("./exp"):
-            os.mkdir("./exp")
-        df.to_csv("./exp/" + station_name + ".csv")
+        if mode == "train":
+            if not os.path.exists("../exp"):
+                os.mkdir("../exp/")
+            if not os.path.exists("../exp/input"):
+                os.mkdir("../exp/input/")
+            df.to_csv("../exp/input/" + csv_file)
+        elif mode == "test":
+            if not os.path.exists("../exp"):
+                os.mkdir("../exp/")
+            if not os.path.exists("../exp/output"):
+                os.mkdir("../exp/output/")
+            df.to_csv("../exp/output/" + csv_file)
 
+
+
+def full_fill(root_dir: str = "../data-train/",
+              mode: str = "test"):
+    """
+    root_dir: path to data-train directory
+    drop_null: drop row missing data
+    mode: "train" or "test"
+    """
+    global raw_files_path
+    assert root_dir is not None
+    if root_dir[-1] != '/':
+        root_dir = root_dir + '/'
+
+    if mode == "train":
+        raw_files_path = root_dir + "input/"
+    elif mode == "test":
+        raw_files_path = root_dir + "output/"
+
+    location = pd.read_csv(root_dir + "nearest_location_all.csv").values
+    fill(raw_files_path, location, mode)
+    # shutil.copyfile(root_dir + "nearest_location.csv", "../exp1/nearest_location.csv")
+
+
+full_fill()
+path = "../exp/output/"
+list_csv = sorted(os.listdir(path))
+for csv_file in list_csv:
+    df = pd.read_csv(path + csv_file)
+    df = df.interpolate(method='linear', axis=0)
+    a = df.isnull().any().any()
+    print("{name} is ----------- {state}".format(name=csv_file, state=a))
+
+    df.to_csv("../exp/output/" + csv_file)
 

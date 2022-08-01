@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8785c50-bdad-4b0d-8f78-ed03270d2064" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/fill_csv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000137-Ngoc Khanh.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000143-Thu vien - DHQG Ha Noi.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000153-Truong Tieu hoc Tran Quoc Toan.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000171-GENESIS School.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000210-Truong THCS Yen So.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000229-Quan Hoa.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000238-He thong lien cap Lomonoxop - Mam non.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000264-FDS - Ton That Thuyet.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000310-Hang Trong.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000370-Ba Trieu.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/S0000541-Tran Quang Khai.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/fill_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/fill_csv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/sort_location.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/sort_location.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wandb/latest-run" beforeDir="false" afterPath="$PROJECT_DIR$/wandb/latest-run" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +53,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/ubuntu/DATA/FACENETv1/MLOPs/MLOps-Basics/MLOps-Basics&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/ubuntu/DATA/FACENETv1/FORECAST/AirQualityPrediction&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
@@ -50,6 +63,27 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.train">
+    <configuration name="fill_csv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AirQualityPrediction" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/fill_csv.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="sort_location" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AirQualityPrediction" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,6 +148,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.fill_csv" />
       <item itemvalue="Python.sort_location" />
       <item itemvalue="Python.use_data" />
       <item itemvalue="Python.train" />
@@ -121,6 +156,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.train" />
+        <item itemvalue="Python.fill_csv" />
         <item itemvalue="Python.sort_location" />
         <item itemvalue="Python.use_data" />
       </list>
@@ -150,16 +186,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
