@@ -1,3 +1,6 @@
 torch
 scikit-learn
 pandas
+numpy
+wandb
+tensorflow-gpu
