@@ -7,10 +7,10 @@ import os
 from utils.dataset import AI4VN_dataloader
 from utils.evaluation import eval_regression_model
 import tensorflow as tf
-import wandb
+# import wandb
 from utils.tf_model import create_model
 import numpy as np
-wandb.init(project="visualize-tensorflow")
+# wandb.init(project="visualize-tensorflow")
 
 
 # Create a function to implement a ModelCheckpoint callback with a specific filename
