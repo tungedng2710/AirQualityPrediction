@@ -18,8 +18,8 @@ def create_model(WINDOW_SIZE: int=168,
     # x = tf.keras.layers.Reshape((-1), name='reshape_1')(x)
     x = tf.keras.layers.Dense(HORIZON * 11, activation="relu", name='Dense_1')(x)
     x = tf.keras.layers.Reshape((HORIZON, 11), name='reshape_2')(x)
-    output = tf.keras.layers.Dot(axes=(2, 1), name='Dot')([x, distances_tensor])
-    # output = tf.keras.layers.Dense(4, activation="relu")(x)
+#     output = tf.keras.layers.Dot(axes=(2, 1), name='Dot')([x, distances_tensor])
+    output = tf.keras.layers.Dense(4, activation="relu", name='Dense_2')(x)
     model = tf.keras.Model(inputs=inputs, outputs=output, name=name)
 
     return model
