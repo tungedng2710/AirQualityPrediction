@@ -12,8 +12,8 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
-          python main.py
-          
-          cat metrics.txt >> report.md
-          #cml publish plot.png --md >> report.md
-          cml send-comment report.md
+#          python main.py
+#
+#          cat metrics.txt >> report.md
+#          #cml publish plot.png --md >> report.md
+#          cml send-comment report.md

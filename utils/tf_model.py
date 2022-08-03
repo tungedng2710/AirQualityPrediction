@@ -13,10 +13,11 @@ def create_model(WINDOW_SIZE: int=168,
 
     # Let's build an LSTM model with the Functional API
     inputs = tf.keras.layers.Input(shape=(WINDOW_SIZE, 3 * 11))
-    # x = tf.keras.layers.LSTM(128, activation="relu", return_sequences=True)(inputs)
-    x = tf.keras.layers.LSTM(256, activation="tanh", name='lstm_1')(inputs)
+    # x = tf.keras.layers.LSTM(128, activation="tanh", return_sequences=True)(inputs)
+    x = tf.keras.layers.LSTM(128, activation="tanh", name='lstm_1')(inputs)
+    # x = tf.keras.layers.Reshape((-1), name='reshape_1')(x)
     x = tf.keras.layers.Dense(HORIZON * 11, activation="relu", name='Dense_1')(x)
-    x = tf.keras.layers.Reshape((HORIZON, 11), name='reshape')(x)
+    x = tf.keras.layers.Reshape((HORIZON, 11), name='reshape_2')(x)
     output = tf.keras.layers.Dot(axes=(2, 1), name='Dot')([x, distances_tensor])
     # output = tf.keras.layers.Dense(4, activation="relu")(x)
     model = tf.keras.Model(inputs=inputs, outputs=output, name=name)
