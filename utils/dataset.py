@@ -96,8 +96,8 @@ class AI4VN_AirDataset():
 #         return train_loader, test_loader
 
 
-def AI4VN_dataloader(test_split):
-    dataset = AI4VN_AirDataset()
+def AI4VN_dataloader(root_dir, test_split):
+    dataset = AI4VN_AirDataset(root_dir=root_dir)
     X, y = dataset.make_windows()
     split_size = int(X.shape[0] * (1-test_split))
     X_train = X[:split_size].astype(np.float32)

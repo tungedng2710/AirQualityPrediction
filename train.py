@@ -8,24 +8,26 @@ from utils.dataset import AI4VN_dataloader
 from utils.evaluation import eval_regression_model
 import tensorflow as tf
 import wandb
-import pandas as pd
+from utils.tf_model import create_model
 import numpy as np
 wandb.init(project="visualize-tensorflow")
 
 
 # Create a function to implement a ModelCheckpoint callback with a specific filename
 def create_model_checkpoint(model_name, save_path="trained_models"):
-    return tf.keras.callbacks.ModelCheckpoint(filepath=os.path.join(save_path, model_name),
+    outpath = os.path.join(save_path, model_name)
+    if os.path.exists(outpath):
+        os.mkdir(outpath)
+    return tf.keras.callbacks.ModelCheckpoint(filepath=outpath,
                                               verbose=0,  # only output a limited amount of text
+                                              monitor='val_loss',
+                                              save_weights_only=True,
                                               save_best_only=True)  # save only the best model to file
 
 if __name__ == "__main__":
     WINDOW_SIZE = 7*24
     HORIZON = 24
-    distances = pd.read_csv("dataset/exp/in_out_location.csv").to_numpy()[:, 1:].astype(np.float32).T
-    distances_normalize = 1/(distances/np.min(distances))
-    distances_tensor = tf.expand_dims(tf.convert_to_tensor(distances_normalize), axis=0)
-    X_train, X_test, y_train, y_test = AI4VN_dataloader(test_split=0.2)
+    X_train, X_test, y_train, y_test = AI4VN_dataloader(root_dir='dataset/exp', test_split=0.2)
 
     # 1. Turn train and test arrays into tensor Datasets
     train_features_dataset = tf.data.Dataset.from_tensor_slices(X_train.tolist())
@@ -46,15 +48,7 @@ if __name__ == "__main__":
 
     tf.random.set_seed(42)
 
-    # Let's build an LSTM model with the Functional API
-    inputs = tf.keras.layers.Input(shape=(WINDOW_SIZE, 3*11))
-    # x = tf.keras.layers.LSTM(128, activation="relu", return_sequences=True)(inputs)
-    x = tf.keras.layers.LSTM(256, activation="tanh", )(inputs)
-    x = tf.keras.layers.Dense(HORIZON*11, activation="relu")(x)
-    x = tf.keras.layers.Reshape((HORIZON, 11))(x)
-    output = tf.keras.layers.Dot(axes=(2, 1), name='Dot')([x, distances_tensor])
-    # output = tf.keras.layers.Dense(4, activation="relu")(x)
-    model = tf.keras.Model(inputs=inputs, outputs=output, name="model_lstm_2")
+    model = create_model(WINDOW_SIZE=WINDOW_SIZE, HORIZON=HORIZON, name='model_lstm_2')
 
     # Compile model
     model.compile(loss=tf.keras.losses.MeanSquaredError(),
@@ -77,4 +71,5 @@ if __name__ == "__main__":
     y_test = np.reshape(y_test, (y_test.shape[0], -1))
     y_preds = np.reshape(y_preds, (y_preds.shape[0], -1))
     eval_regression_model(y_test, y_preds)
+
 
