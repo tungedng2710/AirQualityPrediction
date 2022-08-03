@@ -1,8 +1,8 @@
-explained_variance: 0.323
-mean_squared_log_error: 3.2303
-R^2: -0.0599
-MAE: 20.1639
-MSE: 899.4761
-RMSE: 29.9913
-MAPE: 0.9793
-MDAPE: 63.8546
+explained_variance: 0.4437
+mean_squared_log_error: 0.5835
+R^2: 0.3887
+MAE: 16.6365
+MSE: 504.3726
+RMSE: 22.4582
+MAPE: 1.2003
+MDAPE: 44.2994

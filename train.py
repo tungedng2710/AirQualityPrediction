@@ -22,7 +22,7 @@ def create_model_checkpoint(model_name, save_path="trained_models"):
 if __name__ == "__main__":
     WINDOW_SIZE = 7*24
     HORIZON = 24
-    distances = pd.read_csv("exp/in_out_location.csv").to_numpy()[:, 1:].astype(np.float32).T
+    distances = pd.read_csv("dataset/exp/in_out_location.csv").to_numpy()[:, 1:].astype(np.float32).T
     distances_normalize = 1/(distances/np.min(distances))
     distances_tensor = tf.expand_dims(tf.convert_to_tensor(distances_normalize), axis=0)
     X_train, X_test, y_train, y_test = AI4VN_dataloader(test_split=0.2)
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     # Let's build an LSTM model with the Functional API
     inputs = tf.keras.layers.Input(shape=(WINDOW_SIZE, 3*11))
     # x = tf.keras.layers.LSTM(128, activation="relu", return_sequences=True)(inputs)
-    x = tf.keras.layers.LSTM(64, activation="tanh", )(inputs)
+    x = tf.keras.layers.LSTM(256, activation="tanh", )(inputs)
     x = tf.keras.layers.Dense(HORIZON*11, activation="relu")(x)
     x = tf.keras.layers.Reshape((HORIZON, 11))(x)
     output = tf.keras.layers.Dot(axes=(2, 1), name='Dot')([x, distances_tensor])
