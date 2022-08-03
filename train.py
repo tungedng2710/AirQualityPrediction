@@ -41,17 +41,17 @@ if __name__ == "__main__":
     test_dataset = tf.data.Dataset.zip((test_features_dataset, test_labels_dataset))
 
     # 3. Batch and prefetch for optimal performance
-    BATCH_SIZE = 32  # taken from Appendix D in N-BEATS paper
+    BATCH_SIZE = 64  # taken from Appendix D in N-BEATS paper
     N_EPOCHS = 1000
     train_dataset = train_dataset.batch(BATCH_SIZE).prefetch(tf.data.AUTOTUNE)
     test_dataset = test_dataset.batch(BATCH_SIZE).prefetch(tf.data.AUTOTUNE)
 
     tf.random.set_seed(42)
 
-    model = create_model(WINDOW_SIZE=WINDOW_SIZE, HORIZON=HORIZON, name='model_lstm_128_32_mse')
+    model = create_model(WINDOW_SIZE=WINDOW_SIZE, HORIZON=HORIZON, name='model_lstm_dot_mae_128_64')
 
     # Compile model
-    model.compile(loss=tf.keras.losses.MeanAbsoluteError(),
+    model.compile(loss=tf.keras.losses.MeanSquaredError(),
                   optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
                   metrics=["mae"])
     model.summary()
