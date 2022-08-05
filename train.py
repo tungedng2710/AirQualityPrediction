@@ -4,6 +4,7 @@ Please check the Quickstart notebook for instant use
 '''
 
 import os
+from datetime import datetime
 from utils.dataset import AI4VN_dataloader
 from utils.evaluation import eval_regression_model
 import tensorflow as tf
@@ -25,6 +26,12 @@ def create_model_checkpoint(model_name, save_path="trained_models"):
                                               save_best_only=True)  # save only the best model to file
 
 if __name__ == "__main__":
+
+    BATCH_SIZE = 64  # taken from Appendix D in N-BEATS paper
+    N_EPOCHS = 1000
+    LR = 0.0005
+    name = datetime.strftime(datetime.now(), '%Y%m%d_%H%M%S') + '_' + str(BATCH_SIZE) + '_' + str(LR)
+
     WINDOW_SIZE = 7*24
     HORIZON = 24
     X_train, X_test, y_train, y_test = AI4VN_dataloader(root_dir='dataset/exp', test_split=0.2)
@@ -41,18 +48,16 @@ if __name__ == "__main__":
     test_dataset = tf.data.Dataset.zip((test_features_dataset, test_labels_dataset))
 
     # 3. Batch and prefetch for optimal performance
-    BATCH_SIZE = 32  # taken from Appendix D in N-BEATS paper
-    N_EPOCHS = 1000
     train_dataset = train_dataset.batch(BATCH_SIZE).prefetch(tf.data.AUTOTUNE)
     test_dataset = test_dataset.batch(BATCH_SIZE).prefetch(tf.data.AUTOTUNE)
 
     tf.random.set_seed(42)
 
-    model = create_model(WINDOW_SIZE=WINDOW_SIZE, HORIZON=HORIZON, name='model_lstm_128_32_mse')
+    model = create_model(WINDOW_SIZE=WINDOW_SIZE, HORIZON=HORIZON, name=name)
 
     # Compile model
-    model.compile(loss=tf.keras.losses.MeanAbsoluteError(),
-                  optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
+    model.compile(loss=tf.keras.losses.MeanSquaredError(reduction=tf.keras.losses.Reduction.AUTO),
+                  optimizer=tf.keras.optimizers.SGD(learning_rate=LR),
                   metrics=["mae"])
     model.summary()
 
@@ -62,7 +67,7 @@ if __name__ == "__main__":
               validation_data=test_dataset,
               verbose=1,
               callbacks=[create_model_checkpoint(model_name=model.name),
-                         # tf.keras.callbacks.EarlyStopping(monitor="val_loss", patience=200, restore_best_weights=True),
+                         # tf.keras.callbacks.EarlyStopping(monitor="val_loss", patience=150, restore_best_weights=True),
                          tf.keras.callbacks.ReduceLROnPlateau(monitor="val_loss", patience=100, verbose=1)])
 
 

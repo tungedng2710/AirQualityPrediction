@@ -5,13 +5,26 @@ import pandas as pd
 from utils.tf_model import create_model
 
 
+def normalize(arr, t_min=0, t_max=1):
+    norm_arr = []
+    diff = t_max - t_min
+    diff_arr = max(arr) - min(arr)
+    for i in arr:
+        temp = (((i - min(arr))*diff)/diff_arr) + t_min
+        norm_arr.append(temp)
+    return norm_arr
+
 def read_dataset(input_path):
     df_list = []
     for csv_file in sorted(os.listdir(input_path)):
         df = pd.read_csv(os.path.join(input_path, csv_file)).to_numpy()[:, -3:]
-        df_list.append(df)
+        df_norm = []
+        for i in range(df.shape[1]):
+            norm_column = normalize(df[:, i])
+            df_norm.append(norm_column)
+        df_list.append(np.array(df_norm).T)
     merged_input = np.transpose(np.array(df_list).astype(np.float32), (1, 0, 2))  # transpose from 11x168x3 to 168x11x3
-    merged_input = np.reshape(merged_input, (merged_input.shape[0], -1))  # reshape from 168x11x3 to 168x33
+    # merged_input = np.reshape(merged_input, (merged_input.shape[0], -1))  # reshape from 168x11x3 to 168x33
 
     return np.expand_dims(merged_input, axis=0)
 
@@ -30,7 +43,7 @@ def write2csv(predicts,
 
 def main(path_input: str = "dataset/exp_test/input/",
               path_output: str = "dataset/exp_test/output/",
-              path_model: str = 'trained_models/model_lstm_128_32_mse'):
+              path_model: str = 'trained_models/20220805_164109_64_0.001'):
 
     model = create_model(name=path_model.split('/')[-1])
     model.load_weights(path_model)

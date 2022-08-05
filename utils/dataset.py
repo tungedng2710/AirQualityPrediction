@@ -1,8 +1,17 @@
 import os
 import numpy as np
-from torch.utils.data import DataLoader
+from sklearn.model_selection import train_test_split
 import pandas as pd
 
+
+def normalize(arr, t_min=0, t_max=1):
+    norm_arr = []
+    diff = t_max - t_min
+    diff_arr = max(arr) - min(arr)
+    for i in arr:
+        temp = (((i - min(arr))*diff)/diff_arr) + t_min
+        norm_arr.append(temp)
+    return norm_arr
 
 class AI4VN_AirDataset():
     def __init__(self,
@@ -24,10 +33,20 @@ class AI4VN_AirDataset():
         df_list_output = []
         for csv_file in sorted(os.listdir(input_path)):
             df = pd.read_csv(input_path + csv_file).to_numpy()[:, -3:]
-            df_list_input.append(df)
+            df_norm = []
+            for i in range(df.shape[1]):
+                # norm_column = normalize(df[:, i])
+                if i == 0:
+                    norm_column = df[:, i]
+                else:
+                    norm_column = df[:, i]/5
+                df_norm.append(norm_column)
+
+            df_list_input.append(np.array(df_norm).T)
+
         self.merged_input = np.transpose(np.array(df_list_input), (1, 0, 2))   # transpose from 11x9000x3 to 9000x11x3
-        self.merged_input = np.reshape(self.merged_input,
-                                       (self.merged_input.shape[0], -1))  # reshape from 9000x11x3 to 9000x33
+        # self.merged_input = np.reshape(self.merged_input,
+        #                                (self.merged_input.shape[0], -1))  # reshape from 9000x11x3 to 9000x33
 
         for csv_file in sorted(os.listdir(output_path)):
             df = pd.read_csv(output_path + csv_file).to_numpy()[:, -3]
@@ -67,35 +86,6 @@ class AI4VN_AirDataset():
         return windows, labels
 
 
-# class AI4VN_AirDataLoader:
-#     def __init__(self):
-#         self.dataset = AI4VN_AirDataset()
-#         X, y = self.dataset.make_windows()
-#
-#     def get_data_loader_sklearn(self):
-#         X_train = self.train_set.X
-#         X_test = self.test_set.X
-#         y_train = self.train_set.y
-#         y_test = self.test_set.y
-#
-#         return X_train, X_test, y_train, y_test
-#
-#     def get_data_loader_pytorch(self,
-#                                 batch_size_train: int = 128,
-#                                 batch_size_test: int = 128,
-#                                 num_workers: int = 8):
-#         train_loader = DataLoader(dataset=self.train_set,
-#                                   batch_size=batch_size_train,
-#                                   shuffle=True,
-#                                   drop_last=True,
-#                                   num_workers=num_workers)
-#         test_loader = DataLoader(dataset=self.test_set,
-#                                  batch_size=batch_size_test,
-#                                  shuffle=False,
-#                                  num_workers=num_workers)
-#         return train_loader, test_loader
-
-
 def AI4VN_dataloader(root_dir, test_split):
     dataset = AI4VN_AirDataset(root_dir=root_dir)
     X, y = dataset.make_windows()
@@ -104,5 +94,7 @@ def AI4VN_dataloader(root_dir, test_split):
     X_test = X[split_size:].astype(np.float32)
     y_train = y[:split_size].astype(np.float32)
     y_test = y[split_size:].astype(np.float32)
+
+    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 
     return X_train, X_test, y_train, y_test

@@ -1,2 +1,2 @@
-model_checkpoint_path: "model_lstm_128_32_mse"
-all_model_checkpoint_paths: "model_lstm_128_32_mse"
+model_checkpoint_path: "20220805_182701_64_0.0005"
+all_model_checkpoint_paths: "20220805_182701_64_0.0005"
