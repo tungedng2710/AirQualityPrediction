@@ -17,14 +17,18 @@ def normalize(arr, t_min=0, t_max=1):
 def read_dataset(input_path):
     df_list = []
     for csv_file in sorted(os.listdir(input_path)):
-        df = pd.read_csv(os.path.join(input_path, csv_file)).to_numpy()[:, -3:]
-        df_norm = []
-        for i in range(df.shape[1]):
-            norm_column = normalize(df[:, i])
-            df_norm.append(norm_column)
-        df_list.append(np.array(df_norm).T)
+        df = pd.read_csv(os.path.join(input_path, csv_file)).to_numpy()[-24*2:, -3:]
+        df_list.append(df)
+        # df_norm = []
+        # for i in range(df.shape[1]):
+        #     if i == 0:
+        #         norm_column = df[:, i]
+        #     else:
+        #         norm_column = df[:, i] / 2
+        #     df_norm.append(norm_column)
+        # df_list.append(np.array(df_norm).T)
     merged_input = np.transpose(np.array(df_list).astype(np.float32), (1, 0, 2))  # transpose from 11x168x3 to 168x11x3
-    # merged_input = np.reshape(merged_input, (merged_input.shape[0], -1))  # reshape from 168x11x3 to 168x33
+    merged_input = np.reshape(merged_input, (merged_input.shape[0], -1))  # reshape from 168x11x3 to 168x33
 
     return np.expand_dims(merged_input, axis=0)
 
@@ -43,9 +47,11 @@ def write2csv(predicts,
 
 def main(path_input: str = "dataset/exp_test/input/",
               path_output: str = "dataset/exp_test/output/",
-              path_model: str = 'trained_models/20220805_164109_64_0.001'):
+              path_model: str = 'trained_models/20220809_112040_64_0.001'):
 
-    model = create_model(name=path_model.split('/')[-1])
+    WINDOW_SIZE = 2*24
+    HORIZON = 24
+    model = create_model(WINDOW_SIZE=WINDOW_SIZE, HORIZON=HORIZON, name=path_model.split('/')[-1])
     model.load_weights(path_model)
 
     folders = sorted(os.listdir(path_input))

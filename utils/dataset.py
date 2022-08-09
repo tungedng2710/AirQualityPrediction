@@ -33,20 +33,19 @@ class AI4VN_AirDataset():
         df_list_output = []
         for csv_file in sorted(os.listdir(input_path)):
             df = pd.read_csv(input_path + csv_file).to_numpy()[:, -3:]
-            df_norm = []
-            for i in range(df.shape[1]):
-                # norm_column = normalize(df[:, i])
-                if i == 0:
-                    norm_column = df[:, i]
-                else:
-                    norm_column = df[:, i]/5
-                df_norm.append(norm_column)
-
-            df_list_input.append(np.array(df_norm).T)
+            df_list_input.append(df)
+            # df_norm = []
+            # for i in range(df.shape[1]):
+            #     if i == 0:
+            #         norm_column = df[:, i]
+            #     else:
+            #         norm_column = df[:, i]/2
+            #     df_norm.append(norm_column)
+            # df_list_input.append(np.array(df_norm).T)
 
         self.merged_input = np.transpose(np.array(df_list_input), (1, 0, 2))   # transpose from 11x9000x3 to 9000x11x3
-        # self.merged_input = np.reshape(self.merged_input,
-        #                                (self.merged_input.shape[0], -1))  # reshape from 9000x11x3 to 9000x33
+        self.merged_input = np.reshape(self.merged_input,
+                                       (self.merged_input.shape[0], -1))  # reshape from 9000x11x3 to 9000x33
 
         for csv_file in sorted(os.listdir(output_path)):
             df = pd.read_csv(output_path + csv_file).to_numpy()[:, -3]
@@ -86,9 +85,9 @@ class AI4VN_AirDataset():
         return windows, labels
 
 
-def AI4VN_dataloader(root_dir, test_split):
+def AI4VN_dataloader(root_dir, test_split, window_size, horizon):
     dataset = AI4VN_AirDataset(root_dir=root_dir)
-    X, y = dataset.make_windows()
+    X, y = dataset.make_windows(window_size=window_size, horizon=horizon)
     split_size = int(X.shape[0] * (1-test_split))
     X_train = X[:split_size].astype(np.float32)
     X_test = X[split_size:].astype(np.float32)

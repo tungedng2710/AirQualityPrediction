@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8785c50-bdad-4b0d-8f78-ed03270d2064" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Note.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset/exp_test/output/1/res_1_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/exp_test/output/1/res_1_1.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset/exp_test/output/1/res_1_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/exp_test/output/1/res_1_2.csv" afterDir="false" />
@@ -411,15 +410,122 @@
       <change beforePath="$PROJECT_DIR$/evaluate.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/metrics.txt" beforeDir="false" afterPath="$PROJECT_DIR$/metrics.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trained_models/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/trained_models/checkpoint" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_120019_64_0.001.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_120019_64_0.001.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_135002_64_0.001.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_135002_64_0.001.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_145318_128_0.001.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_145318_128_0.001.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_152829_128_0.001.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_152829_128_0.001.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_164941_64_0.001.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_164941_64_0.001.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_182630_64_0.001.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220804_182630_64_0.001.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220805_113111_128_0.005.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220805_113111_128_0.005.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220805_120443_128_0.005.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220805_120443_128_0.005.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220805_144947_128_0.005.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220805_144947_128_0.005.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220805_153135_64_0.001.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220805_153135_64_0.001.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220805_164109_64_0.001.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/20220805_164109_64_0.001.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/checkpoint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/model_lstm_128_32_mse.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/model_lstm_128_32_mse.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/model_lstm_128_64.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/model_lstm_128_64.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/model_lstm_2.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/model_lstm_2.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/model_lstm_Dense_mse_128_64.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/model_lstm_Dense_mse_128_64.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/model_lstm_Dense_mse_new_64.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_models/model_lstm_Dense_mse_new_64.index" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/dataset.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/tf_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/tf_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wandb/latest-run" beforeDir="false" afterPath="$PROJECT_DIR$/wandb/latest-run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_175744-v8bb4g46/files/config.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_175744-v8bb4g46/files/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_175744-v8bb4g46/files/wandb-metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_175744-v8bb4g46/files/wandb-summary.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_175744-v8bb4g46/run-v8bb4g46.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/latest-run" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_142707-1atmdron/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_142707-1atmdron/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_142707-1atmdron/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_142707-1atmdron/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_142707-1atmdron/run-1atmdron.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_170152-3fjxu3z8/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_170152-3fjxu3z8/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_170152-3fjxu3z8/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_170152-3fjxu3z8/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_170152-3fjxu3z8/run-3fjxu3z8.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_180048-2ig9r7b4/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_180048-2ig9r7b4/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_180048-2ig9r7b4/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_180048-2ig9r7b4/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220803_180048-2ig9r7b4/run-2ig9r7b4.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_080433-tm8u20fe/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_080433-tm8u20fe/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_080433-tm8u20fe/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_080433-tm8u20fe/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_080433-tm8u20fe/run-tm8u20fe.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_094617-drunfxwn/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_094617-drunfxwn/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_094617-drunfxwn/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_094617-drunfxwn/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_094617-drunfxwn/run-drunfxwn.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_120018-6a1n75b5/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_120018-6a1n75b5/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_120018-6a1n75b5/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_120018-6a1n75b5/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_120018-6a1n75b5/run-6a1n75b5.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_135001-344uatwk/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_135001-344uatwk/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_135001-344uatwk/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_135001-344uatwk/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_135001-344uatwk/run-344uatwk.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_145317-1y90lrvc/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_145317-1y90lrvc/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_145317-1y90lrvc/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_145317-1y90lrvc/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_145317-1y90lrvc/run-1y90lrvc.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_152828-1j4xwh5j/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_152828-1j4xwh5j/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_152828-1j4xwh5j/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_152828-1j4xwh5j/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_152828-1j4xwh5j/run-1j4xwh5j.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_164934-3pvns6g6/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_164934-3pvns6g6/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_164934-3pvns6g6/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_164934-3pvns6g6/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_164934-3pvns6g6/run-3pvns6g6.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_182629-42xrlu3v/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_182629-42xrlu3v/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_182629-42xrlu3v/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_182629-42xrlu3v/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220804_182629-42xrlu3v/run-42xrlu3v.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_113109-5ny88494/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_113109-5ny88494/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_113109-5ny88494/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_113109-5ny88494/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_113109-5ny88494/run-5ny88494.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_120442-3esbhmu7/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_120442-3esbhmu7/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_120442-3esbhmu7/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_120442-3esbhmu7/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_120442-3esbhmu7/run-3esbhmu7.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_144945-2hqadzzo/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_144945-2hqadzzo/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_144945-2hqadzzo/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_144945-2hqadzzo/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_144945-2hqadzzo/run-2hqadzzo.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_153134-1el52oy1/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_153134-1el52oy1/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_153134-1el52oy1/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_153134-1el52oy1/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_153134-1el52oy1/run-1el52oy1.wandb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_164108-2eagy1r9/files/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_164108-2eagy1r9/files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_164108-2eagy1r9/files/wandb-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_164108-2eagy1r9/files/wandb-summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wandb/run-20220805_164108-2eagy1r9/run-2eagy1r9.wandb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -464,7 +570,7 @@
       <recent name="$PROJECT_DIR$/utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.train">
+  <component name="RunManager" selected="Python.evaluate">
     <configuration name="evaluate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AirQualityPrediction" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -579,8 +685,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.train" />
         <item itemvalue="Python.evaluate" />
+        <item itemvalue="Python.train" />
         <item itemvalue="Python.fill_csv_test" />
         <item itemvalue="Python.fill_csv_train" />
         <item itemvalue="Python.sort_location" />

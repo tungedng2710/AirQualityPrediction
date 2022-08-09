@@ -1,0 +1,1 @@
+{"explained_variance": 0.3111, "_timestamp": 1660020188, "_runtime": 1350, "_step": 7, "mean_squared_log_error": 0.564300000667572, "R^2": 0.3065, "MAE": 17.330799102783203, "MSE": 584.892822265625, "RMSE": 24.184600830078125, "MAPE": 1.0944000482559204, "MDAPE": 46.1228, "_wandb": {"runtime": 1350}}
