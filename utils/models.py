@@ -7,7 +7,6 @@ import os
 
 torch.manual_seed(42)
 
-
 class EnsembleModel:
     def __init__(self,
                  name: str = "gradientboosting"):
@@ -45,7 +44,7 @@ class EnsembleModel:
                 print("Trained model has been saved at " + save_dir + self.alias + "_model.pkl")
         return self.model
 
-    def eval(self,
+    def predicts(self,
              X_test=None):
         return self.model.predict(X_test)
 
