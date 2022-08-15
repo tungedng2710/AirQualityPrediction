@@ -1,6 +1,5 @@
 import numpy as np
 import sklearn.metrics as metrics
-# import wandb
 
 
 def mean_absolute_percentage_error(y_true, y_pred):
@@ -41,15 +40,5 @@ def eval_regression_model(y_true, y_pred, verbose=1):
         outfile.write("RMSE: " + str(round(rmse, 4)) + "\n")
         outfile.write("MAPE: " + str(round(mape, 4)) + "\n")
         outfile.write("MDAPE: " + str(round(mdape, 4)) + "\n")
-
-    # If logging metrics over time, then use wandb.log
-#     wandb.log({"explained_variance": round(explained_variance, 4)})
-#     wandb.log({"mean_squared_log_error": round(mean_squared_log_error, 4)})
-#     wandb.log({"R^2": round(r2, 4)})
-#     wandb.log({"MAE": round(mae, 4)})
-#     wandb.log({"MSE": round(mse, 4)})
-#     wandb.log({"RMSE": round(rmse, 4)})
-#     wandb.log({"MAPE": round(mape, 4)})
-#     wandb.log({"MDAPE": round(mdape, 4)})
 
     return r2, mae, mse, rmse, mape, mdape

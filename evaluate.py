@@ -47,7 +47,7 @@ def write2csv(predicts,
 
 def main(path_input: str = "dataset/exp_test/input/",
               path_output: str = "dataset/exp_test/output/",
-              path_model: str = 'trained_models/20220809_112040_64_0.001'):
+              path_model: str = 'trained_models/model'):
 
     WINDOW_SIZE = 2*24
     HORIZON = 24

@@ -8,10 +8,8 @@ from datetime import datetime
 from utils.dataset import AI4VN_dataloader
 from utils.evaluation import eval_regression_model
 import tensorflow as tf
-# import wandb
 from utils.tf_model import create_model
 import numpy as np
-# wandb.init(project="visualize-tensorflow")
 
 tf.random.set_seed(42)
 
@@ -51,28 +49,14 @@ if __name__ == "__main__":
     test_dataset = tf.data.Dataset.zip((test_features_dataset, test_labels_dataset))
 
     # 3. Batch and prefetch for optimal performance
-<<<<<<< HEAD
-=======
-    BATCH_SIZE = 64  # taken from Appendix D in N-BEATS paper
-    N_EPOCHS = 1000
->>>>>>> d0b9bbc63ca6c6deba9dfabb11fb608361bad633
     train_dataset = train_dataset.batch(BATCH_SIZE).prefetch(tf.data.AUTOTUNE)
     test_dataset = test_dataset.batch(BATCH_SIZE).prefetch(tf.data.AUTOTUNE)
 
-
-<<<<<<< HEAD
-    model = create_model(WINDOW_SIZE=WINDOW_SIZE, HORIZON=HORIZON, name=name)
+    model = create_model(WINDOW_SIZE=WINDOW_SIZE, HORIZON=HORIZON, name='model')
 
     # Compile model
     model.compile(loss=tf.keras.losses.MeanSquaredError(),
                   optimizer=tf.keras.optimizers.Adam(learning_rate=LR),
-=======
-    model = create_model(WINDOW_SIZE=WINDOW_SIZE, HORIZON=HORIZON, name='model_lstm_dot_mae_128_64')
-
-    # Compile model
-    model.compile(loss=tf.keras.losses.MeanSquaredError(),
-                  optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
->>>>>>> d0b9bbc63ca6c6deba9dfabb11fb608361bad633
                   metrics=["mae"])
     model.summary()
 

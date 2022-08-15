@@ -4,6 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="b8785c50-bdad-4b0d-8f78-ed03270d2064" name="Changes" comment="" />
+=======
     <list default="true" id="b8785c50-bdad-4b0d-8f78-ed03270d2064" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset/exp_test/output/1/res_1_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/exp_test/output/1/res_1_1.csv" afterDir="false" />
@@ -527,6 +530,7 @@
       <change beforePath="$PROJECT_DIR$/wandb/run-20220805_164108-2eagy1r9/files/wandb-summary.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wandb/run-20220805_164108-2eagy1r9/run-2eagy1r9.wandb" beforeDir="false" />
     </list>
+>>>>>>> 344f90213d103a31ad17ebc12ed6db4f9e3802a5
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -557,6 +561,14 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+<<<<<<< HEAD
+    &quot;last_opened_file_path&quot;: &quot;/home/quang/Project/AirQuality&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
+=======
     &quot;last_opened_file_path&quot;: &quot;/media/ubuntu/DATA/FACENETv1/FORECAST/AirQualityPrediction/dataset/public-test&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
@@ -594,6 +606,7 @@
     </configuration>
     <configuration name="fill_csv_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AirQualityPrediction" />
+>>>>>>> 344f90213d103a31ad17ebc12ed6db4f9e3802a5
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -613,6 +626,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
+=======
     <configuration name="fill_csv_train" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AirQualityPrediction" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -683,6 +698,7 @@
       <item itemvalue="Python.sort_location" />
       <item itemvalue="Python.train" />
     </list>
+>>>>>>> 344f90213d103a31ad17ebc12ed6db4f9e3802a5
     <recent_temporary>
       <list>
         <item itemvalue="Python.evaluate" />
